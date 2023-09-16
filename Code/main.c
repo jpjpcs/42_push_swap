@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:06:04 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/09/13 14:37:26 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/09/16 09:58:04 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@ int main(int argc, char **argv)
     a = NULL;
     b = NULL;
     
-    if (argc == 1)
+    if (argc == 1 || (argc == 2 && !argv [1[0]))
         return (1);
-    if (argc == 2 && !argv[1][0])
-        error_exit();
     //if (argc == 2 && ft_strchr(argv[1], ' ')) #Filipe Azevedo code
-    if (argc == 2)
-        argv = ft_split (argv[1], ' ');
+    //if (argc == 2)
+    //    argv = ft_split (argv[1], ' ');
     //if (argv == NULL)
 	//	return (write(2, "Error\n", 6)); #Filipe Azevedo code
-    stack_init (&a, argv + ! (argv == 2), argc == 2);
+    stack_init (&a, argv + 1);
     if (!stack_is_sorted(a))
     {
         if (stack_len (a) == 2)
