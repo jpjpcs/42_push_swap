@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:45:41 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/09/20 02:35:45 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/09/20 02:40:27 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int error_repetition(t_stack_node *a, int num)
 }
 
 static long ft_atol (const char *str)
-
 {   
     long num;
     int i;
