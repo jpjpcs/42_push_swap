@@ -6,17 +6,38 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:45:41 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/09/20 00:14:03 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/09/20 02:35:45 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include push_swap.h
 //# include <stdio.h>
 
-
-
-append_node(a, (int)nbr)
-
+append_node(t_stack_node **a, int num)
+{
+    t_stack_node *new_node;
+    t_stack_node *last_node;
+    
+    if (a == NULL) //Filpe code
+        return ; //Filipe code
+    new_node = (t_stack_node *)malloc(sizeof(t_stack_node));
+    if (new_node == NULL)
+        return ;
+    new_node->value = num;
+    new_node->final_index = 0;
+    new_node->next = NULL;
+    if (*a == NULL)
+    {
+        *a = new_node;
+        //new_node->prev = NULL //codigo do Filipe
+        return ;
+    }
+    last_node = *a;
+    while (last_node->next)
+        last_node = last_node->next;
+    last_node->next = new_node;
+    //new_node->previous = last_node // Filipe code
+}
 
 int error_repetition(t_stack_node *a, int num)
 {
@@ -83,7 +104,9 @@ int error_syntax(char *argv_num)
     return(0);
 }
 
-/*int main()
+/*
+main to test error_syntax
+int main()
 {
     char *str = "+1245";
     if (error_syntax(str) == 0)
