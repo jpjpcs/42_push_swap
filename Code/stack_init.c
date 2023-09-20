@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 09:58:29 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/09/19 21:06:56 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:16:44 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 //changing the address for which the pointer of the pointer is pointing.
 // Its stops pointing to a list of empty arguments and starts pointing to the new created one.
 
-/*void stack_init (t_stack_node **a, char **argv)
+void stack_init (t_stack_node **a, char **argv)
 {
     int i;
     long num;
@@ -47,4 +47,4 @@
         append_node(a, (int)num);
         i++;
     }
-}*/
+}
