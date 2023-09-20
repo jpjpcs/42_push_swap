@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:20:03 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/09/20 19:19:20 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:44:33 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,36 +39,31 @@
 void tiny_sort_3 (t_stack_node **a)
 {   
     t_stack_node *highest_node;
-    t_stack_node
-    while (a)
+    t_stack_node *temp;
+    int highest;
+    
+    //highest_node = find_highest_node(*a)
+    // I´ve done the bellow code to substitue
+    //function above and to put only 5 functions on this folder (& not 6)
+    highest = INT_MIN;
+    temp = *a;
+    while(temp)
     {
-        if (a->value > a->next->value)
-            move(&a, SA);
-        if (a->value > a->next->next->value)
-            move (&a, RRA);
-        if (a->value > a->next->next->value)
-            move (&a, RRA);
+        if (temp->value > highest)
+        {
+            highest = temp->value;
+            highest_node = temp;
+        }
+        temp = temp->next;
     }
+    
+	if (*a == highest_node)
+		move(stack, stack, RA);
+	else if ((*a)->next == highest_node)
+		move(stack, stack, RRA);
+	if ((*a)->value > (*a)->next->value)
+		move(stack, stack, SA);
 }
-
-
-
-void	sort_three(t_stack **a)
-{
-	t_stack	*biggest;
-
-	biggest = biggest_node(*a);
-	if (biggest == *a)
-		ra(a, false);
-	else if (biggest == (*a)->next)
-		rra(a, false);
-	if ((*a)->data > (*a)->next->data)
-		sa(a, false);
-}
-
-
-
-
 
 void move (t_stack_node *a, t_stack_node *b, char *cmd)
 {
