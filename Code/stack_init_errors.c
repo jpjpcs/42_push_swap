@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 02:08:15 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/09/21 02:11:27 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:06:12 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ int error_syntax(char *argv_num)
     int i;
 
     i = 0;
-    if ((argv_num[i]!= '+' || argv_num[i]!= '-'))
+    if ((argv_num[i] == '+' || argv_num[i] == '-'))
         i++;
-    if (!(argv_num[i] >= '0' && argv_num[i]<='9'))
+    if (!(argv_num[i] >= '0' && argv_num[i] <= '9'))
         return (1);
     while (argv_num[i])
     {
-        if (!(argv_num[i] >= '0' && argv_num[i]<='9'))
+        if (!(argv_num[i] >= '0' && argv_num[i] <= '9'))
             return (1);
         i++;
     }

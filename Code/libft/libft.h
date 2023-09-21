@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 10:00:31 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/05/15 23:45:18 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:09:25 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <xlocale.h>
 # include <stdbool.h>
 
 typedef struct s_list

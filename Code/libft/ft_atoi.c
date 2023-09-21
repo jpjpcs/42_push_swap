@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:31:00 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/05/03 16:09:27 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:10:04 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 int	ft_atoi(const char *str)
 {
 	int	sign;
-	int	count;
 	int	result;
 
 	sign = 1;
-	count = 0;
 	result = 0;
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
