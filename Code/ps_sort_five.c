@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 02:05:15 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/09/21 02:05:27 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/09/21 20:37:00 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ t_stack_node	*find_smallest(t_stack_node *stack)
 	return (smallest);
 }
 
-void	finish_rotation(t_stack_node **stack, t_stack_node *cheap, char *rx, char *rrx)
+void	finish_rotation(t_stack_node **stack, t_stack_node *cheap, char *rx,
+		char *rrx)
 {
 	while (*stack != cheap)
 	{

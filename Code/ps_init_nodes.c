@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 01:29:05 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/09/21 02:32:58 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/09/21 20:36:14 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	set_target_node(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_a;
 	t_stack_node	*target_node;
-	long	best_match_index;
+	long			best_match_index;
 
 	while (b)
 	{

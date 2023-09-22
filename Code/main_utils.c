@@ -12,27 +12,27 @@
 
 #include "push_swap.h"
 
- void free_stack(t_stack_node **a)
- {
-     t_stack_node *temp;
-     
-     while (*a)
-     {
-         temp = *a;
-         *a = (*a)->next;
-         free (temp);
-     }
- }
-
-int stack_len(t_stack_node *a)
+void	free_stack(t_stack_node **a)
 {
-    int stack_len;
+	t_stack_node	*temp;
 
-    stack_len = 0; 
-    while (a)
-    {
-        a = a->next;
-        ++stack_len;
-    }
-    return (stack_len);
+	while (*a)
+	{
+		temp = *a;
+		*a = (*a)->next;
+		free(temp);
+	}
+}
+
+int	stack_len(t_stack_node *a)
+{
+	int	stack_len;
+
+	stack_len = 0;
+	while (a)
+	{
+		a = a->next;
+		++stack_len;
+	}
+	return (stack_len);
 }

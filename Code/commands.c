@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 00:14:07 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/09/21 02:36:46 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:03:22 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	swap(t_stack_node **a, t_stack_node **b, char *cmd)
 {
 	t_stack_node	*tmp;
 
-	if (!ft_strncmp(cmd, SA, ft_strlen(SA))
-		|| !ft_strncmp(cmd, SS, ft_strlen(SS)))
+	if (!ft_strncmp(cmd, SA, ft_strlen(SA)) || !ft_strncmp(cmd, SS,
+			ft_strlen(SS)))
 	{
 		if (!*a || !(*a)->next)
 			return ;
@@ -26,8 +26,8 @@ void	swap(t_stack_node **a, t_stack_node **b, char *cmd)
 		tmp->next = (*a)->next;
 		(*a)->next = tmp;
 	}
-	if (!ft_strncmp(cmd, SB, ft_strlen(SB))
-		|| !ft_strncmp(cmd, SS, ft_strlen(SS)))
+	if (!ft_strncmp(cmd, SB, ft_strlen(SB)) || !ft_strncmp(cmd, SS,
+			ft_strlen(SS)))
 		swap(b, a, SA);
 }
 
@@ -53,8 +53,8 @@ void	rotate(t_stack_node **a, t_stack_node **b, char *cmd)
 	t_stack_node	*tmp;
 	t_stack_node	*last;
 
-	if (!ft_strncmp(cmd, RA, ft_strlen(RA))
-		|| !ft_strncmp(cmd, RR, ft_strlen(RR)))
+	if (!ft_strncmp(cmd, RA, ft_strlen(RA)) || !ft_strncmp(cmd, RR,
+			ft_strlen(RR)))
 	{
 		if (!*a || !(*a)->next)
 			return ;
@@ -66,8 +66,8 @@ void	rotate(t_stack_node **a, t_stack_node **b, char *cmd)
 		last->next = tmp;
 		tmp->next = NULL;
 	}
-	if (!ft_strncmp(cmd, RB, ft_strlen(RB))
-		|| !ft_strncmp(cmd, RR, ft_strlen(RR)))
+	if (!ft_strncmp(cmd, RB, ft_strlen(RB)) || !ft_strncmp(cmd, RR,
+			ft_strlen(RR)))
 		rotate(b, a, RA);
 }
 
@@ -76,8 +76,8 @@ void	reverse_rotate(t_stack_node **a, t_stack_node **b, char *cmd)
 	t_stack_node	*temp;
 	t_stack_node	*last;
 
-	if (!ft_strncmp(cmd, RRA, ft_strlen(RRA))
-		|| !ft_strncmp(cmd, RRR, ft_strlen(RRR)))
+	if (!ft_strncmp(cmd, RRA, ft_strlen(RRA)) || !ft_strncmp(cmd, RRR,
+			ft_strlen(RRR)))
 	{
 		if (!*a || !(*a)->next)
 			return ;
@@ -89,27 +89,24 @@ void	reverse_rotate(t_stack_node **a, t_stack_node **b, char *cmd)
 		last->next = *a;
 		*a = last;
 	}
-	if (!ft_strncmp(cmd, RRB, ft_strlen(RRB))
-		|| !ft_strncmp(cmd, RRR, ft_strlen(RRR)))
+	if (!ft_strncmp(cmd, RRB, ft_strlen(RRB)) || !ft_strncmp(cmd, RRR,
+			ft_strlen(RRR)))
 		reverse_rotate(b, a, RRA);
 }
 
-void move (t_stack_node **a, t_stack_node **b, char *cmd)
+void	move(t_stack_node **a, t_stack_node **b, char *cmd)
 {
-   if (!ft_strncmp(cmd, SA, ft_strlen(SA))
-		|| !ft_strncmp(cmd, SB, ft_strlen(SB))
-		|| !ft_strncmp(cmd, SS, ft_strlen(SS)))
+	if (!ft_strncmp(cmd, SA, ft_strlen(SA)) || !ft_strncmp(cmd, SB,
+			ft_strlen(SB)) || !ft_strncmp(cmd, SS, ft_strlen(SS)))
 		swap(a, b, cmd);
-	else if (!ft_strncmp(cmd, PA, ft_strlen(PA))
-		|| !ft_strncmp(cmd, PB, ft_strlen(PB)))
+	else if (!ft_strncmp(cmd, PA, ft_strlen(PA)) || !ft_strncmp(cmd, PB,
+			ft_strlen(PB)))
 		push_func(a, b, cmd);
-	else if (!ft_strncmp(cmd, RA, ft_strlen(RA))
-		|| !ft_strncmp(cmd, RB, ft_strlen(RB))
-		|| !ft_strncmp(cmd, RR, ft_strlen(RR)))
+	else if (!ft_strncmp(cmd, RA, ft_strlen(RA)) || !ft_strncmp(cmd, RB,
+			ft_strlen(RB)) || !ft_strncmp(cmd, RR, ft_strlen(RR)))
 		rotate(a, b, cmd);
-	else if (!ft_strncmp(cmd, RRA, ft_strlen(RRA))
-		|| !ft_strncmp(cmd, RRB, ft_strlen(RRB))
-		|| !ft_strncmp(cmd, RRR, ft_strlen(RRR)))
+	else if (!ft_strncmp(cmd, RRA, ft_strlen(RRA)) || !ft_strncmp(cmd, RRB,
+			ft_strlen(RRB)) || !ft_strncmp(cmd, RRR, ft_strlen(RRR)))
 		reverse_rotate(a, b, cmd);
-	ft_putstr_fd(cmd, 1); //maybe mine is different
+	ft_putstr_fd(cmd, 1);
 }

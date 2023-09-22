@@ -16,7 +16,7 @@ static void	get_final_index(t_stack_node *a, int size)
 {
 	t_stack_node	*temp;
 	t_stack_node	*max_address;
-	int		max_n;
+	int				max_n;
 
 	while (size--)
 	{
@@ -43,8 +43,8 @@ static void	get_final_index(t_stack_node *a, int size)
 
 void	push_b_save_3(t_stack_node **a, t_stack_node **b, int size)
 {
-	int		pushed;
-	int		i;
+	int	pushed;
+	int	i;
 
 	pushed = 0;
 	i = 0;
@@ -66,9 +66,3 @@ void	push_b_save_3(t_stack_node **a, t_stack_node **b, int size)
 		pushed++;
 	}
 }
-
-
-
-
-
-
