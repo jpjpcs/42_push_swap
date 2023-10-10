@@ -25,8 +25,8 @@
 // check duplicates/ repetitions
 // if everything ok, append node,
 // changing the address for which the pointer of the pointer is pointing.
-// Its stops pointing to a list of empty arguments and starts pointing 
-//to the new created one.
+// Its stops pointing to a list of empty arguments and starts pointing
+// to the new created one.
 // I will need atol. because argv is a char.
 // In that sense I must convert it into an integer.
 // The logic that: "I don´t need atol,
@@ -37,7 +37,7 @@
 // we don´t need atol
 // because if the input its not made ny integers,
 // the code should give an error, and not
-// transform a str into an integer. That´s not what the 
+// transform a str into an integer. That´s not what the
 // subject is asking us to do." becomes false.
 // In the tiny_sort,
 // highest_node = find_highest_node(*a)

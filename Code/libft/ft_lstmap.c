@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 23:44:27 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/05/16 00:52:05 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:02:12 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,19 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 }
 
 // Test function: Multiply each element by 2
-void *multiply_by_two(void *n)
+void	*multiply_by_two(void *n)
 {
-	int *new_n = malloc(sizeof(int));
+	int	*new_n;
+
+	new_n = malloc(sizeof(int));
 	if (new_n == NULL)
-		return NULL;
-
+		return (NULL);
 	*new_n = *((int *)n) * 2;
-
-	return new_n;
+	return (new_n);
 }
 
 // Test function: Free the memory occupied by an integer
-void del_int(void *n)
+void	del_int(void *n)
 {
 	free(n);
 }

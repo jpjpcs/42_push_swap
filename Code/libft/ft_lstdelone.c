@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:42:13 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/05/15 11:22:05 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:51:33 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 
     ft_lstdelone(node1, &free);
    
-	// attempt to print the list to confirm it has been freed. It will print the nodes that weren´t deleted,
+	// attempt to print the list to confirm it has been freed. 
+    It will print the nodes that weren´t deleted,
 	but not the one that was.
     printf("\n%s\n\n", (char*)node2->content); // this should print 
     printf("\n%s\n\n", (char*)node3->content); // this should print 

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-//after *a = new_node:
+// after *a = new_node:
 // new_node->prev = NULL //codigo do Filipe
 // after last_node->next = new_node;:
 // new_node->previous = last_node // Filipe code

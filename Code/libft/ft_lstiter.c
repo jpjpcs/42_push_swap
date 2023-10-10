@@ -6,21 +6,21 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 22:54:36 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/05/15 23:41:03 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:57:29 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    if (lst == NULL || f == NULL)
-        return;
-    while (lst != NULL)
-    {
-      f(lst->content);
-      lst = lst->next;
-    }
+	if (lst == NULL || f == NULL)
+		return ;
+	while (lst != NULL)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }
 
 /* // Example function to be applied to each node's content
@@ -43,7 +43,8 @@ int main(void)
     node3->content = "!";
     node3->next = NULL;
 
-    ft_lstiter(node1, print_content);  // Apply print_content function to each node's content
+    ft_lstiter(node1, print_content);  
+    // Apply print_content function to each node's content
 
     // Free the memory allocated for the list
     free(node1);

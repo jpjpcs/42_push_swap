@@ -6,7 +6,7 @@
 #    By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/21 00:17:16 by jode-jes          #+#    #+#              #
-#    Updated: 2023/09/21 02:23:46 by jode-jes         ###   ########.fr        #
+#    Updated: 2023/10/10 13:20:44 by jode-jes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ WHITE = \033[0;97m
 
 # Sources to objects
 
-SRC_FILES = main main_utils stack_init_utils stack_init_errors ps_push_b_save_3 ps_sort_five ps_init_nodes ps_move_nodes commands
+SRC_FILES = main main_utils stack_init_utils stack_init_errors ps_push_b_save_3 ps_sort_five ps_init_nodes ps_move_nodes commands ps_utils
 SRC = $(addsuffix .c, $(SRC_FILES))
 OBJ = $(addsuffix .o, $(SRC_FILES))
 SRC_BONUS_FILES = checker_bonus stack_utils_bonus commands_bonus error_bonus get_next_line_bonus get_next_line_utils_bonus push_swap_utils_bonus
