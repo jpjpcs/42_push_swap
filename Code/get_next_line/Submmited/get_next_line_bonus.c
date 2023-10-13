@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 11:39:34 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/10/13 04:31:17 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:02:25 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ char	*ft_new_line(char *stash)
 	j = 0;
 	while (stash[i] && stash[i] != '\n')
 		i++;
-	if (!stash[i] || !stash[i+1])
+	if (!stash[i] || !stash[i + 1])
 	{
 		free(stash);
 		return (NULL);
