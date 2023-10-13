@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:07:32 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/10/13 01:00:20 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/10/13 02:52:51 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ int						error_repetition(t_stack_node *a, int nbr);
 int						error_syntax(char *nbr);
 void					push_b_save_3(t_stack_node **a, t_stack_node **b,
 							int size);
+void					error_exit(void);
 
 #endif

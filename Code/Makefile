@@ -6,7 +6,7 @@
 #    By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/21 00:17:16 by jode-jes          #+#    #+#              #
-#    Updated: 2023/10/13 02:20:03 by jode-jes         ###   ########.fr        #
+#    Updated: 2023/10/13 03:27:17 by jode-jes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ HEADER_BONUS = checker_bonus.h
 LIBNAME = libft
 LIBDIR = libft/
 LIB_FLAGS = -L $(LIBDIR) -lft
-GNL = get_next_line
-GNLDIR = get_next_line/Submmited/
-GNL_FLAGS = -L $(GNLDIR) -lft
+GNL = get_next_line #included
+GNLDIR = get_next_line/Submmited/ #included
+GNL_FLAGS = -L $(GNLDIR) -lft #included
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 AR = ar rcs
@@ -62,6 +62,13 @@ $(NAME) : $(OBJ) $(HEADER)
 	@ $(CC) $(CFLAGS) $(HDR) -c $< -o $@
 	@ echo "$(GREEN)Object files created with sucess$(DEF_COLOR)"
 
+
+#included
+%.o : %.c $(HEADER_BONUS)
+	@ echo "$(YELLOW)Compiling: $<$(DEF_COLOR)"
+	@ $(CC) $(CFLAGS) $(HDR) -c $< -o $@
+	@ echo "$(GREEN)Object files created with sucess$(DEF_COLOR)"
+	
 all : $(NAME)
 
 clean :
@@ -94,13 +101,16 @@ bonus : $(OBJ_BONUS)  $(HEADER_BONUS)
 	@ $(CC) $(CFLAGS) $(HDR) $(OBJ_BONUS) $(LIB_FLAGS) -o $(BONUS)
 	@ echo "$(BLUE)Compiled $(BONUS) with sucess!$(DEF_COLOR)"
 	@ echo "$(GREEN)Everything is ready to use!$(DEF_COLOR)"
+#included 	
 	@ make -s bonus -C $(GNL)
 	@ echo "$(GREEN)Made $(GNL).a with sucess$(DEF_COLOR)"
 	@ $(CC) $(CFLAGS) $(HDR) $(OBJ_BONUS) $(GNL_FLAGS) -o $(BONUS)
 	@ echo "$(BLUE)Compiled $(BONUS) with sucess!$(DEF_COLOR)"
 	@ echo "$(GREEN)Everything is ready to use!$(DEF_COLOR)"
+#included
+	@ echo "$(YELLOW)Run ./$(BONUS) plus numeric argument/s to start$(DEF_COLOR)"
 
-# Rule to build get_next_line_bonus.o
+#included # Rule to build get_next_line_bonus.o and utils
 get_next_line_bonus.o : $(GNLDIR)get_next_line_bonus.c
 	@ echo "$(YELLOW)Compiling: $<$(DEF_COLOR)"
 	@ $(CC) $(CFLAGS) $(HDR) -c $< -o $@
@@ -109,12 +119,5 @@ get_next_line_utils_bonus.o : $(GNLDIR)get_next_line_utils_bonus.c
 	@ echo "$(YELLOW)Compiling: $<$(DEF_COLOR)"
 	@ $(CC) $(CFLAGS) $(HDR) -c $< -o $@
 	@ echo "$(GREEN)Object files created with success$(DEF_COLOR)"
-#$(NAME) : $(OBJ) $(HEADER)
-# @ make -s bonus -C $(LIBNAME) 
-# @ echo "$(GREEN)Made $(LIBNAME).a with sucess$(DEF_COLOR)"
-#@ $(CC) $(CFLAGS) $(HDR) $(OBJ) $(LIB_FLAGS) -o $(NAME)
-#@ echo "$(BLUE)Compiled $(NAME) with sucess!$(DEF_COLOR)"
-#@ echo "$(GREEN)Everything is ready to use!$(DEF_COLOR)"
-#@ echo "$(YELLOW)Run ./$(NAME) plus numeric argument/s to start$(DEF_COLOR)"
 
 .PHONY: all clean fclean re

@@ -13,7 +13,7 @@
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
 
-# include "push_swap.h"
 # include "get_next_line/Submmited/get_next_line_bonus.h"
+# include "push_swap.h"
 
 #endif

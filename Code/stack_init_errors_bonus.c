@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_init_errors.c                                :+:      :+:    :+:   */
+/*   stack_init_errors_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 02:08:15 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/09/21 12:06:12 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/10/13 03:41:08 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	error_exit(void)
+{
+	ft_putendl_fd("Error", 2);
+	exit(1);
+}
 
 int	error_repetition(t_stack_node *a, int num)
 {

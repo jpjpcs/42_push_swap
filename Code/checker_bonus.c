@@ -6,17 +6,11 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:34:26 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/10/13 02:31:09 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/10/13 02:50:33 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
-
-void	error_exit(void)
-{
-	ft_putendl_fd("Error", 2);
-	exit(1);
-}
 
 void	move_checker(t_stack_node **a, t_stack_node **b, char *cmd)
 {
@@ -32,13 +26,13 @@ void	move_checker(t_stack_node **a, t_stack_node **b, char *cmd)
 	else if (!ft_strncmp(cmd, RRA, ft_strlen(RRA)) || !ft_strncmp(cmd, RRB,
 			ft_strlen(RRB)) || !ft_strncmp(cmd, RRR, ft_strlen(RRR)))
 		reverse_rotate(a, b, cmd);
-	else 
-    {
-        free (cmd);
-        free_stack(a);
-        free_stack(b);
-        error_exit(); 
-    }
+	else
+	{
+		free(cmd);
+		free_stack(a);
+		free_stack(b);
+		error_exit();
+	}
 }
 
 bool	stack_is_sorted(t_stack_node *a)
@@ -52,57 +46,56 @@ bool	stack_is_sorted(t_stack_node *a)
 	return (true);
 }
 
-static void checker (t_stack_node **a, t_stack_node **b)
+static void	checker(t_stack_node **a, t_stack_node **b)
 {
-   char *cmd;
-   
-   cmd = get_next_line (0);
-   while (cmd)
-   {
-       move_checker (a, b, cmd);
-       free (cmd);
-       cmd = get_next_line(0);
-   } 
-   free (cmd);
+	char	*cmd;
+
+	cmd = get_next_line(0);
+	while (cmd)
+	{
+		move_checker(a, b, cmd);
+		free(cmd);
+		cmd = get_next_line(0);
+	}
+	free(cmd);
 }
 
-void stack_init(t_stack_node **a, char **argv)
-{   
-    long num;
-    int i;
+void	stack_init(t_stack_node **a, char **argv)
+{
+	long	num;
+	int		i;
 
-    i = 0;
-    while (argv[i])
-    {
-        if (error_syntax(argv[i]))
-            error_free(a);
-        num = ft_atol(argv[i]);
-        if (num > INT_MAX || num < INT_MIN)
-            error_free (a);
-        if (error_repetition(*a, num))
-            error_free(a);
-        append_node (a, num);
-        i++;
-    }
+	i = 0;
+	while (argv[i])
+	{
+		if (error_syntax(argv[i]))
+			error_free(a);
+		num = ft_atol(argv[i]);
+		if (num > INT_MAX || num < INT_MIN)
+			error_free(a);
+		if (error_repetition(*a, num))
+			error_free(a);
+		append_node(a, num);
+		i++;
+	}
 }
 
-int main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_stack_node *a;
-    t_stack_node *b;
+	t_stack_node	*a;
+	t_stack_node	*b;
 
-    a = NULL;
-    b = NULL;
-
-    if (argc == 1 || argv [1] [0] == '\0')
-        return (1);
-    stack_init (&a, argv + 1);
-    checker (&a, &b);
-    if (stack_is_sorted(a) && !b)
-        ft_putendl_fd("Ok", 1);
-    else
-        ft_putendl_fd("KO", 1);
-    free_stack(&a);
-    free_stack(&b);    
-    return (0);
+	a = NULL;
+	b = NULL;
+	if (argc == 1 || argv[1][0] == '\0')
+		return (1);
+	stack_init(&a, argv + 1);
+	checker(&a, &b);
+	if (stack_is_sorted(a) && !b)
+		ft_putendl_fd("Ok", 1);
+	else
+		ft_putendl_fd("KO", 1);
+	free_stack(&a);
+	free_stack(&b);
+	return (0);
 }
