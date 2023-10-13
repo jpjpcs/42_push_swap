@@ -6,7 +6,7 @@
 #    By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/21 00:17:16 by jode-jes          #+#    #+#              #
-#    Updated: 2023/10/10 13:20:44 by jode-jes         ###   ########.fr        #
+#    Updated: 2023/10/13 02:20:03 by jode-jes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,9 @@ HEADER_BONUS = checker_bonus.h
 LIBNAME = libft
 LIBDIR = libft/
 LIB_FLAGS = -L $(LIBDIR) -lft
+GNL = get_next_line
+GNLDIR = get_next_line/Submmited/
+GNL_FLAGS = -L $(GNLDIR) -lft
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 AR = ar rcs
@@ -37,17 +40,17 @@ WHITE = \033[0;97m
 
 # Sources to objects
 
-SRC_FILES = main main_utils stack_init_utils stack_init_errors ps_push_b_save_3 ps_sort_five ps_init_nodes ps_move_nodes commands ps_utils
+SRC_FILES = main main_stack_utils stack_init_utils stack_init_errors ps_push_b_save_3 ps_sort_five ps_init_nodes ps_move_nodes commands ps_utils
 SRC = $(addsuffix .c, $(SRC_FILES))
 OBJ = $(addsuffix .o, $(SRC_FILES))
-SRC_BONUS_FILES = checker_bonus stack_utils_bonus commands_bonus error_bonus get_next_line_bonus get_next_line_utils_bonus push_swap_utils_bonus
+SRC_BONUS_FILES = checker_bonus main_stack_utils_bonus stack_init_utils_bonus commands_bonus stack_init_errors_bonus get_next_line_bonus get_next_line_utils_bonus
 SRC_BONUS = $(addsuffix .c, $(SRC_BONUS_FILES))
 OBJ_BONUS = $(addsuffix .o, $(SRC_BONUS_FILES))
 
 # Rules
 
 $(NAME) : $(OBJ) $(HEADER)
-	@ make -s bonus -C $(LIBNAME)
+	@ make -s bonus -C $(LIBNAME) 
 	@ echo "$(GREEN)Made $(LIBNAME).a with sucess$(DEF_COLOR)"
 	@ $(CC) $(CFLAGS) $(HDR) $(OBJ) $(LIB_FLAGS) -o $(NAME)
 	@ echo "$(BLUE)Compiled $(NAME) with sucess!$(DEF_COLOR)"
@@ -68,7 +71,9 @@ clean :
 	@ echo "$(RED)Removed $(BONUS) object files$(DEF_COLOR)"
 	@ ${MAKE} -s clean -C $(LIBNAME)
 	@ echo "$(RED)Removed $(LIBNAME) object files$(DEF_COLOR)"
-
+	@ ${MAKE} -s clean -C $(GNL)
+	@ echo "$(RED)Removed $(GNL) object files$(DEF_COLOR)"
+	
 fclean : clean
 	@ $(RM)  $(NAME)
 	@ echo "$(RED)Removed '$(NAME)' with sucess$(DEF_COLOR)"
@@ -76,6 +81,9 @@ fclean : clean
 	@ echo "$(RED)Removed '$(BONUS)' with sucess$(DEF_COLOR)"
 	@ ${MAKE} -s fclean -C $(LIBNAME)
 	@ echo "$(RED)Removed '$(LIBNAME).a' with sucess$(DEF_COLOR)"
+	@ echo "$(RED)Everything clean$(DEF_COLOR)"
+	@ ${MAKE} -s fclean -C $(GNL)
+	@ echo "$(RED)Removed '$(GNL).a' with sucess$(DEF_COLOR)"
 	@ echo "$(RED)Everything clean$(DEF_COLOR)"
 
 re : fclean all
@@ -86,5 +94,27 @@ bonus : $(OBJ_BONUS)  $(HEADER_BONUS)
 	@ $(CC) $(CFLAGS) $(HDR) $(OBJ_BONUS) $(LIB_FLAGS) -o $(BONUS)
 	@ echo "$(BLUE)Compiled $(BONUS) with sucess!$(DEF_COLOR)"
 	@ echo "$(GREEN)Everything is ready to use!$(DEF_COLOR)"
+	@ make -s bonus -C $(GNL)
+	@ echo "$(GREEN)Made $(GNL).a with sucess$(DEF_COLOR)"
+	@ $(CC) $(CFLAGS) $(HDR) $(OBJ_BONUS) $(GNL_FLAGS) -o $(BONUS)
+	@ echo "$(BLUE)Compiled $(BONUS) with sucess!$(DEF_COLOR)"
+	@ echo "$(GREEN)Everything is ready to use!$(DEF_COLOR)"
+
+# Rule to build get_next_line_bonus.o
+get_next_line_bonus.o : $(GNLDIR)get_next_line_bonus.c
+	@ echo "$(YELLOW)Compiling: $<$(DEF_COLOR)"
+	@ $(CC) $(CFLAGS) $(HDR) -c $< -o $@
+	@ echo "$(GREEN)Object files created with success$(DEF_COLOR)"
+get_next_line_utils_bonus.o : $(GNLDIR)get_next_line_utils_bonus.c
+	@ echo "$(YELLOW)Compiling: $<$(DEF_COLOR)"
+	@ $(CC) $(CFLAGS) $(HDR) -c $< -o $@
+	@ echo "$(GREEN)Object files created with success$(DEF_COLOR)"
+#$(NAME) : $(OBJ) $(HEADER)
+# @ make -s bonus -C $(LIBNAME) 
+# @ echo "$(GREEN)Made $(LIBNAME).a with sucess$(DEF_COLOR)"
+#@ $(CC) $(CFLAGS) $(HDR) $(OBJ) $(LIB_FLAGS) -o $(NAME)
+#@ echo "$(BLUE)Compiled $(NAME) with sucess!$(DEF_COLOR)"
+#@ echo "$(GREEN)Everything is ready to use!$(DEF_COLOR)"
+#@ echo "$(YELLOW)Run ./$(NAME) plus numeric argument/s to start$(DEF_COLOR)"
 
 .PHONY: all clean fclean re
