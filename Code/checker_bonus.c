@@ -6,7 +6,7 @@
 /*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:34:26 by jode-jes          #+#    #+#             */
-/*   Updated: 2023/10/13 02:50:33 by jode-jes         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:46:55 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1 || argv[1][0] == '\0')
+	if (argc == 1)
 		return (1);
 	stack_init(&a, argv + 1);
 	checker(&a, &b);
